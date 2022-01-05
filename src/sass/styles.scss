@@ -1,0 +1,169 @@
+@use "variables" as v;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: v.$light-grayish-cyan;
+  font-family: v.$font-family-space-mono;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 85px;
+}
+
+.main {
+  position: relative;
+}
+
+.calculator {
+  width: 920px;
+  height: 480px;
+  background-color: v.$white;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15),
+    0px 1px 3px rgba(0, 0, 0, 0.3);
+  &__tip {
+    width: min(100%, 413px);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: v.$dark-grayish-cyan;
+  }
+  &__result {
+    width: min(100%, 413px);
+    height: 100%;
+    background-color: v.$very-dark-cyan;
+    border-radius: 15px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: v.$white;
+    font-weight: 700;
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-weight: 700;
+    position: relative;
+    &--error {
+      &::after {
+        content: "Cann't be zero";
+        color: red;
+        font-size: 0.85rem;
+        font-weight: 700;
+        position: absolute;
+        right: 0;
+      }
+      & > input {
+        outline: 2px solid red;
+        &:focus {
+          outline: 2px solid red;
+        }
+      }
+    }
+  }
+  &__input {
+    text-align: right;
+    font-size: v.$font-size-base;
+    height: 48px;
+    border: none;
+    background-color: v.$light-grayish-cyan-2;
+    background-position: left 1rem center;
+    background-repeat: no-repeat;
+    appearance: textfield;
+    padding-right: 1rem;
+    font-weight: 700;
+    font-family: v.$font-family-space-mono;
+    color: v.$dark-grayish-cyan;
+    border-radius: 5px;
+    &--bill {
+      background-image: url(../images/icon-dollar.svg);
+    }
+    &--people {
+      background-image: url(../images/icon-person.svg);
+    }
+    &--custom-tip {
+      width: 117px;
+      color: v.$very-dark-cyan;
+    }
+    &:focus {
+      outline: 2px solid v.$strong-cyan;
+    }
+  }
+  &__buttons-tip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 110px;
+    margin-top: 5px;
+  }
+  &__btn {
+    width: 117px;
+    height: 48px;
+    font-size: v.$font-size-base;
+    font-weight: 700;
+    border: none;
+    background-color: v.$very-dark-cyan;
+    border-radius: 5px;
+    cursor: pointer;
+    color: v.$white;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15),
+      0px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    @media (hover: hover) {
+      &:hover {
+        color: v.$very-dark-cyan;
+        background-color: lighten(v.$strong-cyan, 30%);
+        box-shadow: 0px 8px 12px 6px rgba(0, 0, 0, 0.15),
+          0px 4px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+    &--reset {
+      width: 100%;
+      height: 50px;
+      background-color: v.$strong-cyan;
+      text-transform: uppercase;
+      color: v.$very-dark-cyan;
+      &:disabled {
+        opacity: 0.2;
+        color: v.$dark-grayish-cyan-2;
+        background-color: lighten(v.$strong-cyan, 40%);
+        cursor: default;
+      }
+    }
+    &:focus {
+      color: v.$very-dark-cyan;
+      background-color: v.$strong-cyan;
+    }
+  }
+  &__tip-amount {
+    display: flex;
+    justify-content: space-between;
+    .gray {
+      color: v.$dark-grayish-cyan-2;
+    }
+  }
+  &__amount {
+    color: v.$strong-cyan;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: v.$font-family-space-mono;
+    width: 230px;
+    border: none;
+    outline: none;
+    text-align: right;
+    background-color: v.$very-dark-cyan;
+  }
+}

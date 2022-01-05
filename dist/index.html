@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name='description'
+    content='This is a solution to the Tip calculator app challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.'>
+  <meta name='keywords' content='frontend Mentor, HTML, SASS/SCSS, TypeScript, git, BEM, challenge, eslint'>
+  <meta name='author' content='Esteban Canaza Ayarachi'>
+
+  <!-- twitter card -->
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:site' content='@stebanc'>
+  <meta name='twitter:url' content='https://stebanc.github.io/tip-calculator-app/'>
+  <meta name='twitter:title' content='# Frontend Mentor - Tip calculator app solution'>
+  <meta name='twitter:description'
+    content='This is a solution to the Tip calculator app challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.'>
+  <meta name='twitter:image'
+    content='https://stebanc.github.io/tip-calculator-app/dist/images/tip-calculator-app-solution.png'>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/styles.css">
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+    }
+
+    .attribution a {
+      color: hsl(183, 100%, 15%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <img src="./images/logo.svg" alt="Brand Logo">
+  </header>
+
+  <main class="main">
+    <form id="form" class="calculator">
+      <div class="calculator__tip">
+        <div class="calculator__field">
+          <label for="tip">Bill</label>
+          <input class="calculator__input calculator__input--bill" type="number" id="bill" name="tip" min="0"
+            max="100000000" placeholder="0" step=".01" autofocus onkeypress="return Only_Text(event);">
+        </div>
+        <div id="buttons" class="calculator__field">
+          <label for="tip-percentage">Select Tip %</label>
+          <div class="calculator__buttons-tip">
+            <button class="calculator__btn calculator__btn--tip" data-tip="5">5%</button>
+            <button class="calculator__btn calculator__btn--tip" data-tip="10">10%</button>
+            <button class="calculator__btn calculator__btn--tip" data-tip="15">15%</button>
+            <button class="calculator__btn calculator__btn--tip" data-tip="25">25%</button>
+            <button class="calculator__btn calculator__btn--tip" data-tip="50">50%</button>
+            <input class="calculator__input calculator__input--custom-tip" id="tip" type="number" name="custom-tip"
+              placeholder="Custom" onkeypress="return Only_Text(event);">
+          </div>
+        </div>
+        <div id="people-error" class="calculator__field">
+          <label for="people">Number of People</label>
+          <input class="calculator__input calculator__input--people" type="number" name="people" id="people" min="0"
+            max="999" maxlength="3" step=".01" placeholder="0" onkeypress="return Only_Text(event);">
+        </div>
+      </div>
+      </div>
+      <div class="calculator__result">
+        <div>
+          <div class="calculator__tip-amount">
+            <p>Tip Amount<br><span class="gray">/ person</span></p>
+            <input id="tip-amount" class="calculator__amount" type="text" value="$0.00" readonly>
+          </div>
+          <div class="calculator__tip-amount">
+            <p>Total<br><span class="gray">/ person</span></p>
+            <input id="total-per" class="calculator__amount" type="text" value="$0.00" readonly>
+          </div>
+        </div>
+        <button class="calculator__btn calculator__btn--reset" type="reset">Reset</button>
+      </div>
+    </form>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/stebanc/tip-calculator-app">Esteban Canaza</a>.
+    </div>
+  </main>
+
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
