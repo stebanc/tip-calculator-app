@@ -1,4 +1,4 @@
-@use "variables" as v;
+@use 'variables' as v;
 
 * {
   box-sizing: border-box;
@@ -18,13 +18,14 @@ body {
 
 .main {
   position: relative;
+  width: min(100%, 920px);
 }
 
 .calculator {
-  width: 920px;
-  height: 480px;
+  width: 100%;
   background-color: v.$white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 30px;
   border-radius: 20px;
@@ -37,10 +38,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     color: v.$dark-grayish-cyan;
+    height: 420px;
   }
   &__result {
     width: min(100%, 413px);
-    height: 100%;
+    height: 420px;
     background-color: v.$very-dark-cyan;
     border-radius: 15px;
     padding: 40px;
@@ -150,7 +152,9 @@ body {
   }
   &__tip-amount {
     display: flex;
-    justify-content: space-between;
+    p {
+      width: 170px;
+    }
     .gray {
       color: v.$dark-grayish-cyan-2;
     }
@@ -160,10 +164,45 @@ body {
     font-size: 3rem;
     font-weight: 700;
     font-family: v.$font-family-space-mono;
-    width: 230px;
+    width: 100%;
     border: none;
     outline: none;
     text-align: right;
     background-color: v.$very-dark-cyan;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .header {
+    margin-top: 50px;
+  }
+  .calculator {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    gap: 32px;
+    &__input {
+      font-size: 1.5rem;
+    }
+    &__tip {
+      height: 435px;
+      padding: 0;
+    }
+    &__buttons-tip {
+      height: 175px;
+    }
+    &__btn {
+      width: 148px;
+      &--reset {
+        width: 100%;
+        height: 50px;
+      }
+    }
+    &__amount {
+      font-size: 2rem;
+    }
+    &__result {
+      padding: 24px;
+      height: 257px;
+    }
   }
 }

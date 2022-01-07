@@ -41,6 +41,13 @@
     .attribution a {
       color: hsl(183, 100%, 15%);
     }
+
+    @media screen and (max-width: 768px) {
+      .attribution {
+        font-size: 10px;
+        bottom: 5px;
+      }
+    }
   </style>
 </head>
 
@@ -88,7 +95,7 @@
             <input id="total-per" class="calculator__amount" type="text" value="$0.00" readonly>
           </div>
         </div>
-        <button class="calculator__btn calculator__btn--reset" type="reset">Reset</button>
+        <button id="reset" class="calculator__btn calculator__btn--reset" type="reset" disabled>Reset</button>
       </div>
     </form>
     <div class="attribution">

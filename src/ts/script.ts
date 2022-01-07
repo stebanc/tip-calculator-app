@@ -15,6 +15,8 @@ const peopleError = <HTMLElement>document.getElementById('people-error');
 const tipAmount = <HTMLInputElement>document.getElementById('tip-amount');
 const totalPer = <HTMLInputElement>document.getElementById('total-per');
 
+const reset = <HTMLButtonElement>document.getElementById('reset');
+
 function Only_Text(e: any) {
   let code;
   if (!e) var e: any = window.event;
@@ -64,10 +66,12 @@ const cuandoSeHaceClick = (e: any) => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  reset.disabled = false;
 });
 
 form.addEventListener('reset', (e) => {
   billValue.focus();
+  reset.disabled = true;
 });
 
 buttons.forEach((boton) => {

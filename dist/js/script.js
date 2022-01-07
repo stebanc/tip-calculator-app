@@ -13,6 +13,7 @@ const peopleValue = document.getElementById('people');
 const peopleError = document.getElementById('people-error');
 const tipAmount = document.getElementById('tip-amount');
 const totalPer = document.getElementById('total-per');
+const reset = document.getElementById('reset');
 function Only_Text(e) {
     let code;
     if (!e)
@@ -54,9 +55,11 @@ const cuandoSeHaceClick = (e) => {
 };
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    reset.disabled = false;
 });
 form.addEventListener('reset', (e) => {
     billValue.focus();
+    reset.disabled = true;
 });
 buttons.forEach((boton) => {
     boton.addEventListener('click', cuandoSeHaceClick);
